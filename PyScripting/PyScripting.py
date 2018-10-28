@@ -67,7 +67,7 @@ def alg():
                         if (guess == hidden) & (guess > init) & (guess < end):
                             clear()
                             tried += 1
-                            print("YOU WIN!!!\n\nYou found the hidden value! It is [{}]!\nYou tried [{}] numbers.\n".format(hidden, tried))
+                            print("YOU WIN!!!\n\nYou found the hidden value! It is [{}]!\nYou tried [{}] numbers.".format(hidden, tried))
                             replay()
                             break
                         if (guess > hidden) & (guess >= init) & (guess <= end):
