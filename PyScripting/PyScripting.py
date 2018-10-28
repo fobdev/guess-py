@@ -18,6 +18,16 @@ def dif_select():
         if difficulty == 3:
             return 5
 
+def replay():
+    restart = input("\nDo you want to play the game again? [Y/N]: ")
+    if (restart == 'y' or restart == 'Y'):
+        clear()
+        alg()
+    elif (restart == 'n' or restart == 'N'):
+        exit(0)
+    else:
+        exit(0)
+
 def alg():
     lifes = dif_select()
 
@@ -30,6 +40,7 @@ def alg():
         alg()
     
     hidden = random.randint(init, end)
+    print(hidden)
     
     while 1:
         tried = 0
@@ -50,14 +61,15 @@ def alg():
                     tried += 1
                 else:
                     if lifes == 0:
+                        clear()
                         print("Game over, run out of lifes! Good luck next time...")
-                        break
+                        replay()
                     else:
                         if (guess == hidden) & (guess > init) & (guess < end):
                             clear()
                             tried += 1
-                            input("YOU WIN!!!\n\nYou found the hidden value! It is [{}]!\nYou tried [{}] numbers.\n".format(hidden, tried))
-                            exit(0)
+                            print("YOU WIN!!!\n\nYou found the hidden value! It is [{}]!\nYou tried [{}] numbers.\n".format(hidden, tried))
+                            replay()
                             break
                         if (guess > hidden) & (guess >= init) & (guess <= end):
                             tried += 1
