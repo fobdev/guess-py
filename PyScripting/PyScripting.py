@@ -5,16 +5,16 @@ def clear():
     os.system('cls' if os.name == 'nt' else 'clear')
 
 def dif_select():
-    difficulty = int(input("Select a difficulty: \n\n[1]> EASY (50 lifes)\n[2]> MEDIUM (20 lifes)\n[3]> HARD (5 lifes)\n\n$- "))
+    difficulty = int(input("Select a difficulty: \n\n[1]> EASY (20 lifes)\n[2]> MEDIUM (10 lifes)\n[3]> HARD (5 lifes)\n\n$- "))
     if ((difficulty <= 0) or (difficulty >= 4)):
         input("\nWARNING: INPUT must be greater than 0 and smaller than 4, try again.")
         clear()
         alg()
     else:
         if difficulty == 1:
-            return 50
-        if difficulty == 2:
             return 20
+        if difficulty == 2:
+            return 10
         if difficulty == 3:
             return 5
 
