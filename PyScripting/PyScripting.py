@@ -39,7 +39,7 @@ def alg():
         clear()
         alg()
     
-    hidden = random.randint(init, end)
+    hidden = random.randint(init + 1, end - 1)
     
     while 1:
         tried = 0
@@ -67,7 +67,12 @@ def alg():
                         if (guess == hidden) & (guess > init) & (guess < end):
                             clear()
                             tried += 1
-                            print("YOU WIN!!!\n\nYou found the hidden value! It is [{}]!\nYou tried [{}] numbers.".format(hidden, tried))
+                            
+                            if tried == 1:
+                                print("THAT WAS A LUCKY ONE!!\nYou found that [{}] is the hidden number in the FIRST TRY!! Congrats!".format(hidden))
+                            else:
+                                print("YOU WIN!!!\n\nYou found the hidden value! It is [{}]!\nYou tried [{}] numbers.".format(hidden, tried))
+
                             replay()
                             break
                         if (guess > hidden) & (guess >= init) & (guess <= end):
