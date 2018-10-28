@@ -40,6 +40,8 @@ def alg():
         alg()
     
     hidden = random.randint(init + 1, end - 1)
+
+    print(hidden)
     
     while 1:
         tried = 0
@@ -55,11 +57,11 @@ def alg():
                 if guess < init:
                     print("\nWARNING: [{}] is smaller than INIT, please use a value between [{}] and [{}]".format(guess, init, end))
                     tried += 1
-                if guess > end:
+                elif guess > end:
                     print("\nWARNING: [{}] is larger than END, please use a value between [{}] and [{}]".format(guess, init, end))
                     tried += 1
                 else:
-                    if lifes == 0:
+                    if (lifes == 0) & (guess != hidden):
                         clear()
                         print("Game over, run out of lifes! Good luck next time...")
                         replay()
