@@ -40,7 +40,6 @@ def alg():
         alg()
     
     hidden = random.randint(init, end)
-    print(hidden)
     
     while 1:
         tried = 0
