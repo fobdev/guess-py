@@ -11,7 +11,7 @@ def dif_select():
     except ValueError:
         input('\nERROR: This is not a valid numeric value, please try again.')
         clear()
-        dif_select()
+        alg()
 
     if ((difficulty <= 0) or (difficulty >= 4)):
         input("\nWARNING: INPUT must be greater than 0 and smaller than 4, try again.")
