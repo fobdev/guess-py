@@ -5,7 +5,14 @@ def clear():
     os.system('cls' if os.name == 'nt' else 'clear')
 
 def dif_select():
-    difficulty = int(input("Select a difficulty: \n\n[1]> EASY (20 lifes)\n[2]> MEDIUM (10 lifes)\n[3]> HARD (5 lifes)\n\n$- "))
+    try:
+        difficulty = int(input("Select a difficulty: \n\n"
+                               "[1]> EASY (20 lifes)\n[2]> MEDIUM (10 lifes)\n[3]> HARD (5 lifes)\n\n$- "))
+    except ValueError:
+        input('\nERROR: This is not a valid numeric value, please try again.')
+        clear()
+        dif_select()
+
     if ((difficulty <= 0) or (difficulty >= 4)):
         input("\nWARNING: INPUT must be greater than 0 and smaller than 4, try again.")
         clear()
@@ -31,8 +38,13 @@ def replay():
 def alg():
     lifes = dif_select()
 
-    init = int(input("\nSet a initial range: "))
-    end = int(input("Set a final range: "))
+    try:
+        init = int(input("\nSet a initial range: "))
+        end = int(input("Set a final range: "))
+    except ValueError:
+        input('\nERROR: This is not a valid integer type, please try again.')
+        clear()
+        alg()
     
     if end < init:
         input("\nWARNING: INIT needs to be greater than END, try again.\n")
@@ -53,7 +65,11 @@ def alg():
             alg()
         else:
             while 1:
-                guess = int(input("\nTry a number between [{}] and [{}]: ".format(init,end)))
+                try:
+                    guess = int(input("\nTry a number between [{}] and [{}]: ".format(init,end)))
+                except ValueError:
+                    input('\nERROR: The input is not a valid integer, please try again.')
+                    continue
                 if guess < init:
                     print("\nWARNING: [{}] is smaller than INIT, please use a value between [{}] and [{}]".format(guess, init, end))
                     tried += 1
