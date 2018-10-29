@@ -53,7 +53,8 @@ def alg():
     
     hidden = random.randint(init + 1, end - 1)
 
-    print(hidden)
+    #debug porpuses
+    #print(hidden)
     
     while 1:
         tried = 0
